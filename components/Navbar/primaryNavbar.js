@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Link from "next/link";
+import { CartContext } from "../CartContext";
 
 export default function PrimaryNavbar() {
   const [search, setSearch] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const {cartProducts} = useContext(CartContext)
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
@@ -55,9 +56,14 @@ export default function PrimaryNavbar() {
         <span className="material-symbols-rounded cursor-pointer text-3xl">
           person
         </span>
+        <Link href="/cart">
+        <div className="relative">
         <span className="material-symbols-rounded cursor-pointer text-3xl">
           shopping_cart
         </span>
+        <p className="absolute top-[-0.5vw] end-[-1vw] bg-orange-800 px-[1vw] lg:px-[0.5vw] text-white text-sm text-center rounded-full">{cartProducts.length}</p>
+        </div>
+        </Link>
       </div>
     </div>
   );
