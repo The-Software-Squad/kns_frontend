@@ -1,0 +1,45 @@
+import { mongooseConnect } from "@/lib/mogooseConnect";
+import { Order } from "@/models/Order";
+const stripe = require("stripe")(process.env.STRIPE_SK);
+import { buffer } from "micro";
+
+const endpointSecret =
+  "whsec_ea957fd40eabe901f9ecb96eec46d07b86bfdcc079b5950bcc01965b5102318e";
+
+  export default async function handler(req, res) {
+  await mongooseConnect();
+
+  const sig = req.headers["stripe-signature"];
+
+  let event;
+  try {
+    event = stripe.webhooks.constructEvent(
+      await buffer(req),
+      sig,
+      endpointSecret
+    );
+  } catch (err) {
+    response.status(400).send(`Webhook Error: ${err.message}`);
+    return;
+  }
+
+  // Handle the event
+  switch (event.type) {
+    case "checkout.session.completed":
+      const data = event.data.object;
+      const orderId = data.metadata.orderId;
+      const paid = data.payment_status === "paid";
+      if(orderId && paid){
+        await Order.findByIdAndUpdate(orderId, {paid: true})
+      }
+      console.log(data);
+    default:
+      console.log(`Unhandled event type ${event.type}`);
+  }
+  res.status(200).send("ok");
+}
+
+export const config = {
+  api: { bodyParser: false },
+};
+// acct_1NsdEiSA9J9ak2UL
