@@ -34,10 +34,10 @@ export default function PrimaryNavbar() {
 
       {/* Logo  */}
       <div className="col-start-2 md:col-start-1 md:justify-self-start">
-        <img
-          src="logo.jpeg"
+        <Link href="/"><img
+          src="/logo.jpeg"
           className="w-[19vw] md:w-[12vw] lg:w-[8vw] rounded-lg"
-        />
+        /></Link>
       </div>
 
       {/* Search */}
@@ -46,7 +46,7 @@ export default function PrimaryNavbar() {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full bg-transparent outline-none border-b-2 border-transparent focus:border-orange-500 text-black"
+          className="w-full bg-transparent outline-none border-b-2 border-transparent focus:border-b focus:border-orange-500 text-black"
         />
         <span className="material-symbols-rounded">search</span>
       </div>

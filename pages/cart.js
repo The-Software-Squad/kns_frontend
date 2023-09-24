@@ -113,11 +113,12 @@ export default function CartPage() {
                       className="border-b border-gray-100 mt-9 text-center"
                     >
                       <td className="py-2 flex flex-col items-center">
-                        <img
+                        <a href={"product/"+product._id}><img
+                          
                           src={product.heroImg}
                           alt={product.title}
                           className="w-[10vw] h-[5vw] object-contain rounded-lg"
-                        />
+                        /></a>
                         <p className="pt-2">{product.title}</p>
                       </td>
                       <td className="py-2 px-4">{quantity}</td>
