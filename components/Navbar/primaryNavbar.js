@@ -11,7 +11,7 @@ export default function PrimaryNavbar() {
   }
   return (
     <div className="w-full bg-orange-200 grid grid-cols-3 items-center justify-items-center px-[5vw] py-2 md:py-3">
-      <span
+      {/* <span
         className="text-3xl justify-self-start ml-[2vw] md:hidden material-symbols-rounded"
         onClick={toggleMenu}
       >
@@ -30,10 +30,10 @@ export default function PrimaryNavbar() {
             <Link href="/" onClick={toggleMenu}>Air Purifying Plants</Link>    
         </div>
         </div>
-      )}
+      )} */}
 
       {/* Logo  */}
-      <div className="col-start-2 md:col-start-1 md:justify-self-start">
+      <div className="col-start-1 justify-self-start">
         <Link href="/"><img
           src="/logo.jpeg"
           className="w-[19vw] md:w-[12vw] lg:w-[8vw] rounded-lg"
@@ -41,7 +41,7 @@ export default function PrimaryNavbar() {
       </div>
 
       {/* Search */}
-      <div className="row-start-3 col-start-1 col-end-4 md:row-start-1 md:col-start-2 md:col-end-2 justify-end w-full flex items-center justify-between gap-4 bg-white mt-2 md:mt-0 px-4 py-3 rounded-full">
+      <div className="row-start-3 col-start-1 col-end-4 md:row-start-1 md:col-start-2 md:col-end-2 justify-end w-full flex items-center justify-between gap-4 bg-white mt-2 md:mt-0 px-4 py-0 mt-2 rounded-full">
         <input
           type="text"
           value={search}
@@ -52,7 +52,7 @@ export default function PrimaryNavbar() {
       </div>
 
       {/* User & Cart */}
-      <div className="col-start-3 justify-self-end flex gap-6">
+      {!isMenuOpen && <div className="col-start-3 justify-self-end flex gap-6">
         <span className="material-symbols-rounded cursor-pointer text-3xl">
           person
         </span>
@@ -64,7 +64,7 @@ export default function PrimaryNavbar() {
         <p className="absolute top-[-0.5vw] end-[-1vw] bg-orange-800 px-[1vw] lg:px-[0.5vw] text-white text-sm text-center rounded-full">{cartProducts.length}</p>
         </div>
         </Link>
-      </div>
+      </div>}
     </div>
   );
 }

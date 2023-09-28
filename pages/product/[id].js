@@ -23,17 +23,17 @@ export default function ProductPage({ product }) {
     return (
     <>
       <Navbar />
-      <div className="grid grid-cols-2 py-[4vw]">
+      <div className="grid grid-cols-1 px-[5vw] md:grid-cols-2 py-[4vw]">
         <div className="justify-self-center">
-          <img src={activeImg} />
+          <img src={activeImg} className="w-[70vw] md:w-[30vw] rounded-lg"/>
           <div className="flex gap-4 pt-5">
             {images}
           </div>
         </div>
-        <div>
+        <div className="pr-[10vw]">
           <h1 className="text-3xl font-bold">{product.title}</h1>
-          <p className="">{product.description}</p>
-          <h5 className="text-2xl font-bold text-green-600">Rs.{product.price}/-</h5>
+          <p className="pt-2">{product.description}</p>
+          <h5 className="text-2xl font-bold text-green-600 py-2">Rs.{product.price}/-</h5>
           <p className="cursor-pointer mt-2 flex items-center w-fit gap-2 md:gap-1 lg:gap-2 bg-gray-200 px-3 rounded-md" onClick={() => addProduct(product._id)}> Add to cart<span className="material-symbols-rounded cursor-pointer text-3xl">
             shopping_cart
           </span></p>

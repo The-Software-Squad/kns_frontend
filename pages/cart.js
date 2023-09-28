@@ -6,7 +6,8 @@ import { useContext, useEffect, useState } from "react";
 
 export default function CartPage() {
   const [products, setProducts] = useState([]);
-  const { cartProducts,addProduct, removeProduct,clearCart } = useContext(CartContext);
+  const { cartProducts, addProduct, removeProduct, clearCart } =
+    useContext(CartContext);
   //   Order details
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ export default function CartPage() {
   const [state, setState] = useState("");
   const [country, setCountry] = useState("");
   const [phone, setPhone] = useState("");
-  const [isSuccess,setIsSuccess] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
     if (cartProducts.length > 0) {
@@ -28,17 +29,15 @@ export default function CartPage() {
     }
   }, [cartProducts]);
 
-  useEffect(()=>{
-    if(typeof window === 'undefined'){
+  useEffect(() => {
+    if (typeof window === "undefined") {
       return;
     }
-    if(window?.location?.href?.includes('success')){
+    if (window?.location?.href?.includes("success")) {
       setIsSuccess(true);
       clearCart();
     }
-  },[])
-
-
+  }, []);
 
   let totalPrice = 0;
   for (const productId of cartProducts) {
@@ -85,19 +84,19 @@ export default function CartPage() {
     <div className="bg-gray-100 h-screen">
       <Navbar />
 
-      <div className="grid grid-cols-7 ">
+      <div className="grid grid-cols-1 md:grid-cols-7 ">
         {!cartProducts.length > 0 && (
           <div className="font-bold px-[3vw]">Cart is empty</div>
         )}
         {products.length > 0 && (
-          <div className="col-start-2 col-span-3 bg-white m-4 rounded-lg">
+          <div className="md:col-start-2 md:col-span-3 bg-white m-4 rounded-lg">
             <h2 className="mb-5 py-3 text-center border-b border-3 font-bold">
               Cart
             </h2>
             <table className="w-full border-collapse">
               <thead>
                 <tr className="text-gray-400">
-                  <th className="py-2">Product</th>
+                  <th className="py-2 md:w-[15vw]">Product</th>
                   <th className="py-2">Quantity</th>
                   <th className="py-2">Price</th>
                 </tr>
@@ -113,12 +112,13 @@ export default function CartPage() {
                       className="border-b border-gray-100 mt-9 text-center"
                     >
                       <td className="py-2 flex flex-col items-center">
-                        <a href={"product/"+product._id}><img
-                          
-                          src={product.heroImg}
-                          alt={product.title}
-                          className="w-[10vw] h-[5vw] object-contain rounded-lg"
-                        /></a>
+                        <a href={"product/" + product._id}>
+                          <img
+                            src={product.heroImg}
+                            alt={product.title}
+                            className="w-[25vw] h-[25vw] md:h-[5vw] md:w-[5vw] object-cover rounded-lg"
+                          />
+                        </a>
                         <p className="pt-2">{product.title}</p>
                       </td>
                       <td className="py-2 px-4">{quantity}</td>
@@ -144,36 +144,51 @@ export default function CartPage() {
                 })}
                 <tr>
                   <td colSpan="2"></td>
-                  <td className="py-2 text-center">Total: {totalPrice}</td>
+                  <td className="py-2 text-center">
+                    Total: <b>{totalPrice}/-</b>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
         )}
-        <div className="col-start-5 col-end-7 m-4 flex flex-col bg-white rounded-lg w-full items-center px-[2vw]">
+        <div className=" md:col-start-5 md:col-end-7 m-4 px-[3vw] bg-white rounded-lg ">
           <h2 className="font-bold py-5">Order information</h2>
-          <input
-            type="text"
-            placeholder="Name"
-            value={name}
-            name="name"
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Email"
-            value={email}
-            name="email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Address"
-            value={address}
-            name="address"
-            onChange={(e) => setAddress(e.target.value)}
-          />
-          <div className="grid grid-cols-2 ">
+          <div className="flex items-center w-full justify-between">
+            <label>Name:</label>
+            <input
+              type="text"
+              placeholder="Name"
+              value={name}
+              name="name"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className="flex items-center w-full justify-between">
+            <label>Email:</label>
+
+            <input
+              type="text"
+              placeholder="Email"
+              value={email}
+              name="email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="flex items-center w-full justify-between">
+            <label>Address:</label>
+
+            <input
+              type="text"
+              placeholder="Address"
+              value={address}
+              name="address"
+              onChange={(e) => setAddress(e.target.value)}
+            />
+          </div>
+          <div className="flex items-center w-full justify-between gap-5">
+            <label>City:</label>
+
             <input
               type="text"
               placeholder="City"
@@ -181,6 +196,10 @@ export default function CartPage() {
               name="city"
               onChange={(e) => setCity(e.target.value)}
             />
+          </div>
+          <div className="flex items-center w-full justify-between gap-5">
+            <label>Pincode:</label>
+
             <input
               type="text"
               placeholder="Pincode"
@@ -189,27 +208,38 @@ export default function CartPage() {
               onChange={(e) => setPincode(e.target.value)}
             />
           </div>
-          <input
-            type="text"
-            placeholder="State"
-            value={state}
-            name="state"
-            onChange={(e) => setState(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Country"
-            value={country}
-            name="country"
-            onChange={(e) => setCountry(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Phone"
-            value={phone}
-            name="phone"
-            onChange={(e) => setPhone(e.target.value)}
-          />
+          <div className="flex items-center w-full justify-between gap-5">
+            <label>State:</label>
+
+            <input
+              type="text"
+              placeholder="State"
+              value={state}
+              name="state"
+              onChange={(e) => setState(e.target.value)}
+            />
+          </div>
+          <div className="flex items-center w-full justify-between gap-5">
+            <label>Country:</label>
+            <input
+              type="text"
+              placeholder="Country"
+              value={country}
+              name="country"
+              onChange={(e) => setCountry(e.target.value)}
+            />
+          </div>
+          <div className="flex items-center w-full justify-between gap-5">
+            <label>Phone:</label>
+
+            <input
+              type="text"
+              placeholder="Phone"
+              value={phone}
+              name="phone"
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div>
           <button
             onClick={goToPayment}
             className="my-4 px-6 py-2 text-white bg-black rounded-md"

@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <div>
       <PrimaryNavbar />
-      <SecondaryNavbar />
+      {/* <SecondaryNavbar /> */}
     </div>
   );
 }

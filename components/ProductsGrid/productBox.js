@@ -6,8 +6,8 @@ export default function ProductBox({ product }) {
   const url = '/product/' + product._id 
 
   return (
-    <div key={product._id} className="w-[75vw] pt-4 md:w-[30vw] lg:w-[20vw] bg-white flex flex-col rounded-lg md:p-2 lg:p-3">
-       <a href={url} className="flex justify-center"><img src={product.heroImg} className="h-[25vw] md:h-[10vw] object-contain" /></a>
+    <div key={product._id} className="w-[75vw] pt-0 md:w-[30vw] lg:w-[20vw] bg-white flex flex-col rounded-lg md:p-2 lg:p-3">
+       <a href={url} className="flex justify-center"><img src={product.heroImg} className="object-cover rounded-lg  w-full pt-0 h-[45vw] md:h-[15vw] " /></a>
       <div className="px-7 md:px-1 lg:px-2 py-5">
         <h2><a href={url}>{product.title}</a></h2>
         <div className="flex items-center justify-between pt-4">
