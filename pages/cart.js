@@ -86,7 +86,12 @@ export default function CartPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-7 ">
         {!cartProducts.length > 0 && (
-          <div className="font-bold px-[3vw]">Cart is empty</div>
+          <div className="md:col-start-2 md:col-span-3 flex gap-4 items-center self-center justify-self-center py-[3vw] px-[10vw] bg-gray-300 rounded font-bold px-[3vw]">
+            <h3>Cart is empty </h3>
+            <span className="material-symbols-rounded cursor-pointer text-3xl">
+              shopping_cart
+            </span>
+          </div>
         )}
         {products.length > 0 && (
           <div className="md:col-start-2 md:col-span-3 bg-white m-4 rounded-lg">

@@ -53,9 +53,11 @@ export default function PrimaryNavbar() {
 
       {/* User & Cart */}
       {!isMenuOpen && <div className="col-start-3 justify-self-end flex gap-6">
+        <Link href="/account">
         <span className="material-symbols-rounded cursor-pointer text-3xl">
           person
         </span>
+        </Link>
         <Link href="/cart">
         <div className="relative">
         <span className="material-symbols-rounded cursor-pointer text-3xl">

@@ -25,6 +25,9 @@ export function CartProvider({ children }) {
         setCartProducts(prev => {
             const index = prev.indexOf(productId)
             if(index !== -1){
+                if(prev.length === 1) {
+                    clearCart()
+                }
                return prev.filter((_, i) => i !== index)
             }
             return prev
@@ -32,10 +35,8 @@ export function CartProvider({ children }) {
     }
 
     function clearCart(){
-        console.log("clearing cart");
         ls?.removeItem("cartProducts");
         setCartProducts([]);
-        console.log(cartProducts);
       }
     return (
         <CartContext.Provider value={{cartProducts, setCartProducts, addProduct, removeProduct, clearCart}}>
