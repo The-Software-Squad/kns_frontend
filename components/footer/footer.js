@@ -19,6 +19,10 @@ export default function Footer() {
               <li>Vegetable Plants</li>
               <li>Flower Plants</li>
               <li>Air Purifying Plants</li>
+              <li>Indoor Plants</li>
+              <li>Outdoor Plants</li>
+              <li>Herbal Plants</li>
+              <li>Corporate Gifts</li>
             </ul>
           </div>
         </div>
@@ -47,7 +51,7 @@ export default function Footer() {
         </div>
       </div>
       {/* social */}
-      <div className="flex gap-4 items-center justify-start">
+      <div className="flex gap-4 py-3 items-center justify-start">
         <WhatsAppLogo />
         <InstagramLogo />
         <XLogo />
