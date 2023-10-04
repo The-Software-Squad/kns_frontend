@@ -5,7 +5,7 @@ import { CartContext } from "../CartContext";
 export default function PrimaryNavbar() {
   const [search, setSearch] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const {cartProducts} = useContext(CartContext)
+  const { cartProducts } = useContext(CartContext);
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
@@ -34,10 +34,12 @@ export default function PrimaryNavbar() {
 
       {/* Logo  */}
       <div className="col-start-1 justify-self-start">
-        <Link href="/"><img
-          src="/logo.png"
-          className="w-[19vw] md:w-[12vw] lg:w-[8vw] rounded-lg"
-        /></Link>
+        <Link href="/">
+          <img
+            src="/logo.png"
+            className="w-[19vw] md:w-[12vw] lg:w-[8vw] rounded-lg"
+          />
+        </Link>
       </div>
 
       {/* Search */}
@@ -46,27 +48,32 @@ export default function PrimaryNavbar() {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full bg-transparent outline-none border-b-2 border-transparent focus:border-b focus:border-orange-500 text-black"
+          placeholder="Search"
+          className="w-full  bg-transparent outline-none border-b-2 border-transparent focus:border-b focus:border-orange-500 text-black"
         />
         <span className="material-symbols-rounded">search</span>
       </div>
 
       {/* User & Cart */}
-      {!isMenuOpen && <div className="col-start-3 justify-self-end flex gap-6">
-        <Link href="/account">
-        <span className="material-symbols-rounded cursor-pointer text-3xl">
-          person
-        </span>
-        </Link>
-        <Link href="/cart">
-        <div className="relative">
-        <span className="material-symbols-rounded cursor-pointer text-3xl">
-          shopping_cart
-        </span>
-        <p className="absolute top-[-0.5vw] end-[-1vw] bg-orange-800 px-[1vw] lg:px-[0.5vw] text-white text-sm text-center rounded-full">{cartProducts.length}</p>
+      {!isMenuOpen && (
+        <div className="col-start-3 justify-self-end flex gap-6">
+          <Link href="/account">
+            <span className="material-symbols-rounded cursor-pointer text-3xl">
+              person
+            </span>
+          </Link>
+          <Link href="/cart">
+            <div className="relative">
+              <span className="material-symbols-rounded cursor-pointer text-3xl">
+                shopping_cart
+              </span>
+              <p className="absolute top-[-0.5vw] end-[-1vw] bg-orange-800 px-[1vw] lg:px-[0.5vw] text-white text-sm text-center rounded-full">
+                {cartProducts.length}
+              </p>
+            </div>
+          </Link>
         </div>
-        </Link>
-      </div>}
+      )}
     </div>
   );
 }

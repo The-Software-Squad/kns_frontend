@@ -3,9 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
-input {
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 5px;
-  margin: 5px;
+@layer base {
+  input {
+    @apply p-2 rounded-full m-2 outline-none ;
+    /* border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 5px; */
+  }
 }

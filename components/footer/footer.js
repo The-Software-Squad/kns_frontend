@@ -1,7 +1,7 @@
+import Link from "next/link";
 import InstagramLogo from "../icons/instagram";
 import WhatsAppLogo from "../icons/whatsapp";
 import XLogo from "../icons/x";
-import XIcons from "../icons/x";
 
 export default function Footer() {
   return (
@@ -30,13 +30,24 @@ export default function Footer() {
           <h1 className=" font-medium text-lg font-montserrat">Company</h1>
           <div className="text-sm">
             <ul className="flex flex-col gap-2 py-3 ">
-              <li>About us</li>
-              <li>Contact us</li>
-              <li>Privacy Policy</li>
-              <li>Shipping Policy</li>
-              <li>Return & Refund</li>
-              <li>Terms & Conditions</li>
-              <li>Return Request</li>
+              <Link href="/about-us">
+                <li>About us</li>
+              </Link>
+              <Link href="/contact-us">
+                <li>Contact us</li>
+              </Link>
+              <Link href="privacy-policy">
+                <li>Privacy Policy</li>
+              </Link>
+              <Link href="/shipping-policy">
+                <li>Shipping Policy</li>
+              </Link>
+              <Link href="/return-refund">
+                <li>Return & Refund</li>
+              </Link>
+              <Link href="/terms-conditions">
+                <li>Terms & Conditions</li>
+              </Link>
             </ul>
           </div>
         </div>
@@ -51,7 +62,7 @@ export default function Footer() {
         </div>
       </div>
       {/* social */}
-      <div className="flex gap-4 py-3 items-center justify-start">
+      <div className="flex gap-6 py-3 items-center justify-start">
         <WhatsAppLogo />
         <InstagramLogo />
         <XLogo />
