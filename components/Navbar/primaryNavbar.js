@@ -43,7 +43,7 @@ export default function PrimaryNavbar() {
       </div>
 
       {/* Search */}
-      <div className="row-start-3 col-start-1 col-end-4 md:row-start-1 md:col-start-2 md:col-end-2 justify-end w-full flex items-center justify-between gap-4 bg-white mt-2 md:mt-0 px-4 py-0 mt-2 rounded-full">
+      <div className="row-start-3 col-start-1 col-end-4 md:row-start-1 md:col-start-2 md:col-end-2  w-full flex items-center justify-between gap-4 bg-white   md:mt-0 px-4 py-0 mt-2 rounded-full">
         <input
           type="text"
           value={search}
