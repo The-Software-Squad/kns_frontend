@@ -5,6 +5,7 @@ import { Product } from "@/models/Product";
 import LatestPlants from "@/components/latestplants/Latestplants";
 import Categories from "@/components/categories/categories";
 import { Category } from "@/models/Category";
+import Footer from "@/components/footer/footer";
 
 export default function Home({ allProducts, categories }) {
   return (
@@ -13,6 +14,7 @@ export default function Home({ allProducts, categories }) {
       <Hero />
       <Categories categories={categories} />
       <LatestPlants allProducts={allProducts} />
+      <Footer />
     </div>
   );
 }

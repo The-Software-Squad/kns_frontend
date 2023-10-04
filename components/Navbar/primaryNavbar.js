@@ -35,7 +35,7 @@ export default function PrimaryNavbar() {
       {/* Logo  */}
       <div className="col-start-1 justify-self-start">
         <Link href="/"><img
-          src="/logo.jpeg"
+          src="/logo.png"
           className="w-[19vw] md:w-[12vw] lg:w-[8vw] rounded-lg"
         /></Link>
       </div>
