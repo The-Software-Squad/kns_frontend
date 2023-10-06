@@ -10,6 +10,12 @@ export default function Footer() {
         <div>
           <h1 className=" font-bold text-2xl ">Kadiyam Nurseries</h1>
           <p className="">Bring the nature with you...</p>
+          {/* social */}
+          <div className="flex gap-6 pt-6 items-center justify-start">
+            <WhatsAppLogo />
+            <InstagramLogo />
+            <XLogo />
+          </div>
         </div>
         <div>
           <h1 className=" font-medium text-lg font-montserrat">Quick Links</h1>
@@ -60,12 +66,6 @@ export default function Footer() {
             <li> Mail us : info@kadiyam.co</li>
           </ul>
         </div>
-      </div>
-      {/* social */}
-      <div className="flex gap-6 py-3 items-center justify-start">
-        <WhatsAppLogo />
-        <InstagramLogo />
-        <XLogo />
       </div>
     </div>
   );

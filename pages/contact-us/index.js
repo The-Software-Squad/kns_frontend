@@ -50,13 +50,13 @@ export default function ContactUs() {
             id="message"
             cols="30"
             rows="10"
-            className="outline-none border-2 border-gray-400 w-full  py-4 px-6  rounded-3xl m-2"
+            className="outline-none border-2 border-gray-400 w-full  py-4 px-6  rounded-xl m-2"
             placeholder="Enter your message here..."
             required
           ></textarea>
           <button
             type="submit"
-            className="bg-black text-xl text-white py-4 px-6 rounded-full w-full"
+            className="bg-black text-xl text-white py-4 px-6 rounded-xl w-full m-2"
           >
             Send Message
           </button>
